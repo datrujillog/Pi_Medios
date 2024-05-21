@@ -3,6 +3,8 @@ import morgan from "morgan";
 import cookie from "cookie-parser";
 import cors from 'cors';
 
+import router from './router/index.js';
+
 
 const app = express();
 
@@ -14,6 +16,7 @@ app.use(cors());
 
 
 // use router
+app.use(router);
 
 
 // Middleware de manejo de errores
