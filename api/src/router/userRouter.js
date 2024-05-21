@@ -50,6 +50,20 @@ class UserRouter {
             }
         });
 
+        this.router.delete("/delete/:id", async (req, res) => {
+            try {
+                const userId = req.params.id;
+                const response = await userService.deleteUser(userId);
+                return res.status(200).json({
+                    success: true,
+                    message: "User deleted successfully",
+                    data: response
+                });
+            } catch (error) {
+                console.log(error);
+                errorResponse(res, error.message);
+            }
+        });
         
 
 
