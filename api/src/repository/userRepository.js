@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-
+import { BadRequest } from "../middleware/error.js";
 
 class UserRepository {
     static #instance;
@@ -32,10 +32,11 @@ class UserRepository {
                     }
                 }
             });
+            
 
             return user;
         } catch (error) {
-            console.log(error);
+            throw new BadRequest(error);
 
         }
 
