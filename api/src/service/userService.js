@@ -15,9 +15,14 @@ class UserService {
     }
 
     async createUser(body) {
-        // Lógica para crear un usuario
+        
         const user = await userRepository.createUser(body);
         return user;
+    }
+
+    async listUsers() {
+        const users = await userRepository.listUsers();
+        return users;
     }
 }
 export default new UserService();
