@@ -24,7 +24,7 @@ class UserRouter {
         this.router.post("/create", async (req, res) => {
 
             try {
-
+                
                 const body = req.body;
                 const response = await userService.createUser(body);
                 // if (!response.success) throw new BadRequest(response.error.message);
@@ -45,11 +45,7 @@ class UserRouter {
 
         
 
-      
-        
 
-
-        // Puedes agregar más rutas aquí si es necesario
     }
     
     getRouter() {
