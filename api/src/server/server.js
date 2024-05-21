@@ -1,7 +1,8 @@
 import app from '../app.js';
 // import config from '../config/config.js';
 import env from '../config/env.js';
-
+// const { PrismaClient } = require('@prisma/client');
+// const prisma = new PrismaClient();
 
 const startServer = async () => {
     try {
@@ -15,3 +16,5 @@ const startServer = async () => {
 };
 
 startServer();
+
+// export default prisma;
