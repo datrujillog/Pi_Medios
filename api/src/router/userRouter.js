@@ -1,7 +1,7 @@
 import express from "express";
 import userService from '../service/userService.js'; 
 import { errorResponse} from "../middleware/errorResponse.js";
-import { BadRequest } from "../middleware/errors.js";
+// import { BadRequest } from "../middleware/errors.js";
 
 class UserRouter {
     static #instance;
@@ -23,8 +23,7 @@ class UserRouter {
                 
                 const body = req.body;
                 const response = await userService.createUser(body);
-                // if (!response.success) throw new BadRequest(response.error.message);
-                // const { user } = response;
+                
                 return res.status(201).json({
                     success: true,
                     message: "User created successfully",
