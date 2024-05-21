@@ -32,17 +32,31 @@ class UserRepository {
                     }
                 }
             });
-            
-
             return user;
         } catch (error) {
             throw new BadRequest(error);
-
         }
-
-
-
     }
+
+    async listUsers() {
+        
+        try {
+
+            const users = await this.#userModel.findMany({
+                include: {
+                    roles: true
+                }
+            });
+            return users;
+            
+        } catch (error) {
+            throw new BadRequest(error);            
+        }
+    }
+
+
+
 }
+
 
 export default new UserRepository;
