@@ -33,9 +33,21 @@ class UserRouter {
             } catch (error) {
                 console.log(error);
                 errorResponse(res, error.message);
-
             }
+        });
 
+        this.router.get("/list", async (req, res) => {
+            try {
+                const response = await userService.listUsers();
+                return res.status(200).json({
+                    success: true,
+                    message: "Users listed successfully",
+                    data: response
+                });
+            } catch (error) {
+                console.log(error);
+                errorResponse(res, error.message);
+            }
         });
 
         
