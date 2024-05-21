@@ -1,5 +1,5 @@
 import express from "express";
-// import userService from '../service/userService.js'; 
+import roleService from '../service/rolesService.js'; 
 
 
 class RoleRouter {
@@ -21,26 +21,17 @@ class RoleRouter {
             try {
 
                 const body = req.body;
-                const response = await userService.createUser(body);
+                const response = await roleService.createRole(body);
                 return res.status(201).json({
                     success: true,
-                    message: "User created successfully",
+                    message: "Role created successfully",
                     data: response
                 });
 
             } catch (error) {
                 console.log(error);
             }
-
         });
-
-
-
-
-
-
-
-        // Puedes agregar más rutas aquí si es necesario
     }
 
     getRouter() {
