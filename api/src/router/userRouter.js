@@ -1,11 +1,7 @@
 import express from "express";
 import userService from '../service/userService.js'; 
-// import userService from "../service/userService";
-
-// import { errorResponse, authResponse, results } from "../helper/response.js";
-// import { BadRequest } from "../middleware/errors.js";
-// import env from "../config/env.js";
-// import { asyncHandler } from "../middleware/handler.js";
+import { errorResponse} from "../middleware/errorResponse.js";
+import { BadRequest } from "../middleware/errors.js";
 
 class UserRouter {
     static #instance;
@@ -37,7 +33,7 @@ class UserRouter {
 
             } catch (error) {
                 console.log(error);
-                // errorResponse(res, error.message);
+                errorResponse(res, error.message);
 
             }
 
