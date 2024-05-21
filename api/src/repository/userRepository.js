@@ -54,6 +54,21 @@ class UserRepository {
         }
     }
 
+    async deleteUser(id) {
+
+        try {
+
+            const user = await this.#userModel.delete({
+                where: {
+                    id: id
+                }
+            });
+            return user;
+        } catch (error) {
+            throw new BadRequest(error);
+        }
+    }
+
 
 
 }
