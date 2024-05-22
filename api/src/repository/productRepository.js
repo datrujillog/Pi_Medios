@@ -20,9 +20,13 @@ class ProductRepository {
     async createProduct(body) {
 
         try {
-
+            delete body.id;
             const productResults = await this.#productModel.create({
-                data: body,
+                data:{
+                    name: body.name,
+                    description: body.description,
+                    price: parseInt(body.price),
+                },
             });
             return productResults;
 
