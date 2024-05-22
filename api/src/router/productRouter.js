@@ -2,6 +2,7 @@ import express from "express";
 import productService from "../service/productService.js";
 
 import { errorResponse } from "../middleware/errorResponse.js";
+import authMiddleware from "../middleware/authValidation.js";
 // import { BadRequest } from "../middleware/errors.js";
 
 class ProducRouter {
@@ -18,7 +19,7 @@ class ProducRouter {
     }
 
     setupRoutes() {
-        this.router.post("/create", async (req, res) => {
+        this.router.post("/create",authMiddleware('admin'), async (req, res) => {
 
             try {
 
@@ -36,7 +37,7 @@ class ProducRouter {
             }
         });
 
-        this.router.get("/list", async (req, res) => {
+        this.router.get("/list",authMiddleware('employee'), async (req, res) => {
 
             try {
 
