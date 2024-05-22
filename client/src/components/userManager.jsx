@@ -18,7 +18,7 @@ export const UserManager = () => {
   const [newUser, setNewUser] = useState(null);
 
   const userAdmin = 'abcda0dc-74fd-4e3c-8316-a3df6f5071a6';
-  const userEmployee = 'e3224dd-6530-485a-a4a4-9d342bc30c76';
+  const userEmployee = '7e3224dd-6530-485a-a4a4-9d342bc30c76';
 
 
   const getUsers = async () => {
@@ -43,6 +43,8 @@ export const UserManager = () => {
     }
   }
 
+  
+
   useEffect(() => {
     getUsers();
   }, []);
@@ -52,7 +54,7 @@ export const UserManager = () => {
   //modal create user
 
   const hadleCreate = () => {
-    setNewUser({ id: '', name: '', description: '', price: '' });
+    setNewUser({ id: '', name: '', lastName: '', document: '', rolesId: '' });
     setShowCreateModal(true);
   };
 
@@ -69,7 +71,7 @@ export const UserManager = () => {
   const handleCreateUser = async () => {
     if (newUser) {
 
-      await axios.post('http://localhost:5000/api/v1/products/create',
+      await axios.post('http://localhost:5000/api/v1/users/create',
         newUser,
         {
           headers: {
@@ -82,10 +84,11 @@ export const UserManager = () => {
         getUsers();
         setNewUser(null);
       }).catch((error) => {
+        console.log('error', error);
         const MySwal = withReactContent(Swal)
         MySwal.fire({
           title: 'Error',
-          text: error.response.data.message,
+          text: error.response.data.message || error.response.data,
           icon: 'error',
           confirmButtonText: 'Ok'
         })
@@ -163,7 +166,7 @@ console.log('users', users);
 
             <Form.Group controlId="formEmail">
               <Form.Label>role</Form.Label>
-              <Form.Control type="text" placeholder="Enter role" name="role" onChange={handleCreateInputChange} />
+              <Form.Control type="text" placeholder="Enter role" name="rolesId" onChange={handleCreateInputChange} />
             </Form.Group>
           </Form>
         </Modal.Body>
