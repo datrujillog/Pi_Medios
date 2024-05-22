@@ -29,7 +29,7 @@ async function adminValidation(req,res,next){
 
 
 function employeeValidation(req,res,next){
-    if(req.user.roles.name==="employee"){
+    if(req.user.roles.name==="employee"  || req.user.roles.name==="admin"){
         return next()
     }else{
         return res.status(400).json({
