@@ -41,12 +41,20 @@ class SaleService {
 
 
         const startDate = new Date(date);
-        startDate.setUTCHours(0, 0, 0, 0);  
+        startDate.setUTCHours(0, 0, 0, 0);
         const endDate = new Date(startDate);
-        endDate.setUTCHours(23, 59, 59, 999); 
+        endDate.setUTCHours(23, 59, 59, 999);
 
 
         const sales = await saleRepository.totalSales(startDate, endDate);
+        return sales;
+    }
+    
+    async totalSalesMonth(year, month) {
+        const startDate = new Date(Date.UTC(year, month - 1, 1));
+        const endDate = new Date(Date.UTC(year, month, 1));
+
+        const sales = await saleRepository.totalSalesMonth(startDate, endDate);
         return sales;
     }
 }
