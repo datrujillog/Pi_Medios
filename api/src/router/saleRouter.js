@@ -77,6 +77,21 @@ class SaleRouter {
                 errorResponse(res, error.message);
             }
         });
+
+        
+        this.router.get("/total/:date", async (req, res) => {
+            try {
+                const date = req.params.date;
+                const response = await saleService.totalSales(date);
+                return res.status(200).json({
+                    success: true,
+                    message: "Total sales obtained successfully",
+                    data: response
+                });
+            } catch (error) {
+                errorResponse(res, error.message);
+            }
+        });
     }
     
     getRouter() {
