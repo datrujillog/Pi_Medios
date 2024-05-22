@@ -63,6 +63,20 @@ class SaleRouter {
                 errorResponse(res, error.message);
             }
         });
+
+        this.router.delete("/delete/:id", async (req, res) => {
+            try {
+                const id = req.params.id;
+                const response = await saleService.deleteSale(id);
+                return res.status(200).json({
+                    success: true,
+                    message: "Sale deleted successfully",
+                    data: response
+                });
+            } catch (error) {
+                errorResponse(res, error.message);
+            }
+        });
     }
     
     getRouter() {
