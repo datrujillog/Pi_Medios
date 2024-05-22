@@ -30,6 +30,18 @@ class SaleRepository {
             throw new BadRequest(error);
         }
     }
+
+    async listSales() {
+
+        try {
+
+            const sales = await this.#saleModel.findMany();
+            return sales;
+            
+        } catch (error) {
+            throw new BadRequest(error);
+        }
+    }
 }
 
 export default new SaleRepository;
