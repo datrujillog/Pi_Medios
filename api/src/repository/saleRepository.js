@@ -133,6 +133,32 @@ class SaleRepository {
             throw new BadRequest(error);
         }
     }
+
+    async totalSalesMonth(startDate, enDate) {
+
+        try {
+
+            const sales = await this.#saleModel.findMany({
+                where: {
+                    saleAt: {
+                        gte: startDate.toISOString(),
+                        lt: enDate.toISOString(),
+                    },
+                },
+                // include: {
+                //     product:true,
+                // },
+            });
+
+            const total = sales.reduce((acc, sale) => {
+                return acc + (sale.product.price * sale.qty);
+            }, 0);
+
+            return total;
+        } catch (error) {
+            throw new BadRequest(error);
+        }
+    }
 }
 
 export default new SaleRepository;
