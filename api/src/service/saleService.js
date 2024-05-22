@@ -28,5 +28,10 @@ class SaleService {
         const sale = await saleRepository.updateSale(id, body);
         return sale;
     }
+
+    async deleteSale(id) {
+        const sale = await saleRepository.deleteSale(id);
+        return sale;
+    }
 }
 export default new SaleService();
