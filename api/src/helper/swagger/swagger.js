@@ -12,10 +12,31 @@ const swaggerAPi = {
       "url": "http://localhost:5000"
     }
   ],
-
-
-
-
+  "components": {
+    "securitySchemes": {
+      "Auth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Auth",
+        "description": "API key for authentication"
+      }
+    },
+    "schemas": {
+      "sale create": {
+        "type": "object",
+        "properties": {
+          "exampleField": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "Auth": []
+    }
+  ],
   "tags": [
     {
       "name": "Sales",
@@ -30,6 +51,18 @@ const swaggerAPi = {
         "summary": "create sales",
         "tags": ["Sales"],
         "description": "create sales",
+        "parameters": [
+          {
+            "name": "Auth",
+            "key": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -58,6 +91,18 @@ const swaggerAPi = {
         "summary": "List sales",
         "tags": ["Sales"],
         "description": "List sales",
+        "parameters": [
+          {
+            "name": "Auth",
+            "key": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
+          }
+        ],
 
         "responses": {
           "200": {
@@ -144,7 +189,7 @@ const swaggerAPi = {
       }
     },
 
-    //hacer un get que recive api/v1/sales/total/2024-05-22
+    
     "/api/v1/sales/total/{date}": {
       "get": {
         "summary": "total sales",
@@ -160,6 +205,48 @@ const swaggerAPi = {
             },
             "required": true,
             "description": "date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sales total successfully"
+          },
+          "400": {
+            "description": "Error in the shipping data"
+          },
+          "500": {
+            "description": "Error in the server"
+          }
+        }
+      }
+    },
+
+    //hacer un get que recive api/v1/sales/total-month/2024/05
+    "/api/v1/sales/total-month/{year}/{month}": {
+      "get": {
+        "summary": "total sales",
+        "tags": ["Sales"],
+        "description": "total sales",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "year",
+            "schema": {
+              "type": "string",
+              "example": "2024"
+            },
+            "required": true,
+            "description": "year"
+          },
+          {
+            "in": "path",
+            "name": "month",
+            "schema": {
+              "type": "string",
+              "example": "05"
+            },
+            "required": true,
+            "description": "month"
           }
         ],
         "responses": {
