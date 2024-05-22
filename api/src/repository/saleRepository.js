@@ -122,11 +122,11 @@ class SaleRepository {
             //     return acc + sale.product.price;
             // }, 0);
 
-            const saless = sales.reduce((acc, sale) => {
+            const total = sales.reduce((acc, sale) => {
                 return acc + (sale.product.price * sale.qty);
             }, 0);
 
-            return saless;
+            return total;
 
             
         } catch (error) {
