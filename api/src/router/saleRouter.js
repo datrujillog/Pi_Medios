@@ -90,6 +90,7 @@ class SaleRouter {
                     data: response
                 });
             } catch (error) {
+                console.log(error);
                 errorResponse(res, error.message);
             }
         });
