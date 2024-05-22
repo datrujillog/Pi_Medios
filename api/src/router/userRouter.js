@@ -38,7 +38,7 @@ class UserRouter {
             }
         });
 
-        this.router.get("/list", async (req, res) => {
+        this.router.get("/list",authMiddleware('admin'), async (req, res) => {
             try {
                 const response = await userService.listUsers();
                 return res.status(200).json({
@@ -52,7 +52,7 @@ class UserRouter {
             }
         });
 
-        this.router.delete("/delete/:id", async (req, res) => {
+        this.router.delete("/delete/:id",authMiddleware('admin'), async (req, res) => {
             try {
                 const userId = req.params.id;
                 const response = await userService.deleteUser(userId);
