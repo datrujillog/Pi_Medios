@@ -1,6 +1,7 @@
 import express from "express";
 import roleService from '../service/rolesService.js';
 import { errorResponse } from "../middleware/errorResponse.js";
+import authMiddleware from "../middleware/authValidation.js";
 
 
 class RoleRouter {

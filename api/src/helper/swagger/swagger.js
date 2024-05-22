@@ -144,6 +144,38 @@ const swaggerAPi = {
       }
     },
 
+    //hacer un get que recive api/v1/sales/total/2024-05-22
+    "/api/v1/sales/total/{date}": {
+      "get": {
+        "summary": "total sales",
+        "tags": ["Sales"],
+        "description": "total sales",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "date",
+            "schema": {
+              "type": "string",
+              "example": "2024-05-22"
+            },
+            "required": true,
+            "description": "date"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Sales total successfully"
+          },
+          "400": {
+            "description": "Error in the shipping data"
+          },
+          "500": {
+            "description": "Error in the server"
+          }
+        }
+      }
+    },
+
     //productos
 
     "/api/v1/products/create": {
@@ -307,7 +339,7 @@ const swaggerAPi = {
       "delete": {
         "summary": "delete users",
         "tags": ["Users"],
-        "description": "delete users",  
+        "description": "delete users",
         "parameters": [
           {
             "in": "path",
