@@ -35,9 +35,41 @@ class SaleRepository {
 
         try {
 
-            const sales = await this.#saleModel.findMany();
+            const sales = await this.#saleModel.findMany({
+                include: {
+                    product: {
+                        select: {
+                            name: true,
+                            price: true,
+                        },
+                    },
+                    user: {
+                        select: {
+                            name: true,
+                            lastName: true,
+                        },
+                    },
+                },
+            });
             return sales;
             
+        } catch (error) {
+            throw new BadRequest(error);
+        }
+    }
+
+    async updateSale(id, body) {
+
+        try {
+
+            const sale = await this.#saleModel.update({
+                where: {
+                    id: id,
+                },
+                data: body,
+            });
+
+            return sale;
         } catch (error) {
             throw new BadRequest(error);
         }
