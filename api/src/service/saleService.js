@@ -43,19 +43,32 @@ class SaleService {
     }
 
     async totalSales(date) {
-        // const startDate = new Date(date);
-        // const endDate = new Date(date);
-        // endDate.setDate(endDate.getDate()+1);
+        
+         const start = new Date(date);
+         start.setHours(0, 0, 0, 0);
+ 
+         const end = new Date(date);
+         end.setHours(23, 59, 59, 999);
+
+        const sales = await saleRepository.totalSales(start, end);
+
+        sales.forEach(sale => {
+            const date = new Date(sale.saleAt);
+            const year = date.getFullYear();
+            const month = ("0" + (date.getMonth() + 1)).slice(-2); 
+            const day = ("0" + date.getDate()).slice(-2);
+            sale.saleAt = `${year}-${month}-${day}`;
+        });
+
+        const total = sales.reduce((acc, sale) => {
+            return acc + (sale.product.price * sale.qty);
+        }, 0);
 
 
-        const startDate = new Date(date);
-        startDate.setUTCHours(0, 0, 0, 0);
-        const endDate = new Date(startDate);
-        endDate.setUTCHours(23, 59, 59, 999);
 
 
-        const sales = await saleRepository.totalSales(startDate, endDate);
-        return sales;
+
+        return total;
     }
 
     async totalSalesMonth(year, month) {
