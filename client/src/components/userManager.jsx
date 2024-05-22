@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-
+import { UserAmin,UserEmployee } from './api/api';
 
 
 
@@ -22,15 +22,14 @@ export const UserManager = () => {
 
 
 
-  const userAdmin = 'abcda0dc-74fd-4e3c-8316-a3df6f5071a6';
-  const userEmployee = '7e3224dd-6530-485a-a4a4-9d342bc30c76';
 
 
   const getUsers = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/v1/users/list', {
         headers: {
-          'Auth': userAdmin,
+          'Auth': UserAmin,
+          // 'Auth': UserEmployee,
         }
       });
       console.log('response', response.data.data);
@@ -78,8 +77,8 @@ export const UserManager = () => {
         newRole,
         {
           headers: {
-            // 'Auth': userEmployee, //employee
-            'Auth': userAdmin
+            // 'Auth': UserEmployee, //employee
+            'Auth': UserAmin
           }
         }
       ).then((response) => {
@@ -129,8 +128,8 @@ export const UserManager = () => {
         newUser,
         {
           headers: {
-            // 'Auth': userEmployee, //employee
-            'Auth': userAdmin
+            // 'Auth': UserEmployee, //employee
+            'Auth': UserAmin
           }
         }
       ).then((response) => {
