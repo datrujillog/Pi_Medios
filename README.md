@@ -16,11 +16,11 @@
 
  # 3. Administrar Usuarios
 
-    * Crear usuarios
-    * Listar usuarios
-    * Borrar usuarios
-    * Asignar rol a un usuario
-    * Crear roles
+    * Crear usuarios  = `Listo`
+    * Listar usuarios = `Listo`
+    * Borrar usuarios = `Listo`
+    * Asignar rol a un usuario = `Listo`
+    * Crear roles    = `Listo`
  
  # 4. Cierres Diarios
 
