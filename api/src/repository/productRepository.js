@@ -31,6 +31,18 @@ class ProductRepository {
         }
     }
 
+    async listProducts() {
+
+        try {
+
+            const productResults = await this.#productModel.findMany();
+            return productResults;
+
+        } catch (error) {
+            throw new BadRequest(error);
+        }
+    }
+
 }
 
 export default new ProductRepository;
