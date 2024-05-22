@@ -19,5 +19,10 @@ class RoleService {
         const roleResults = await roleRepository.createRole(body);
         return roleResults;
     }
+
+    async assignRole(body) {
+        const roleResults = await roleRepository.assignRole(body);
+        return roleResults;
+    }
 }
 export default new RoleService();
