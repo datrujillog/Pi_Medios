@@ -18,5 +18,10 @@ class SaleService {
         const saleResults = await saleRepository.createSale(body);
         return saleResults;
     }
+
+    async listSales() {
+        const sales = await saleRepository.listSales();
+        return sales;
+    }
 }
 export default new SaleService();
