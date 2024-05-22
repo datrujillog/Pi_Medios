@@ -24,8 +24,8 @@
  
  # 4. Cierres Diarios
 
-    * Entregar el valor total de ventas en un día específico
+    * Entregar el valor total de ventas en un día específico = `Listo`
 
 # 5. Balance Mensual
 
-    * Entregar el valor total de ventas en un mes
+    * Entregar el valor total de ventas en un mes específico = `Listo`
