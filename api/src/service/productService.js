@@ -19,5 +19,10 @@ class ProductService {
         return productResults;
     }
 
+    async listProducts() {
+        const productResults = await productRepository.listProducts();
+        return productResults;
+    }
+
 }
 export default new ProductService();
