@@ -20,7 +20,15 @@ class SaleService {
     }
 
     async listSales() {
+
         const sales = await saleRepository.listSales();
+        sales.forEach(sale => {
+            const date = new Date(sale.saleAt);
+            const year = date.getFullYear();
+            const month = ("0" + (date.getMonth() + 1)).slice(-2); 
+            const day = ("0" + date.getDate()).slice(-2);
+            sale.saleAt = `${year}-${month}-${day}`;
+        });
         return sales;
     }
 
@@ -49,7 +57,7 @@ class SaleService {
         const sales = await saleRepository.totalSales(startDate, endDate);
         return sales;
     }
-    
+
     async totalSalesMonth(year, month) {
         const startDate = new Date(Date.UTC(year, month - 1, 1));
         const endDate = new Date(Date.UTC(year, month, 1));
