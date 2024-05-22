@@ -10,8 +10,8 @@
  
  # 2. Administrar Productos
 
-    * Crear productos
-    * Listar productos
+    * Crear productos = `Listo`
+    * Listar productos = `Listo`
 
 
  # 3. Administrar Usuarios
