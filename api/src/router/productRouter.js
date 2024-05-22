@@ -35,6 +35,23 @@ class ProducRouter {
                 errorResponse(res, error.message);
             }
         });
+
+        this.router.get("/list", async (req, res) => {
+
+            try {
+
+                const response = await productService.listProducts();
+                return res.status(200).json({
+                    success: true,
+                    message: "Products retrieved successfully",
+                    data: response
+                });
+
+            } catch (error) {
+                console.log(error);
+                errorResponse(res, error.message);
+            }
+        });
     }
 
     getRouter() {
