@@ -1,6 +1,7 @@
 import express from "express";
 import { errorResponse} from "../middleware/errorResponse.js";
 import saleService from "../service/saleService.js";
+import authMiddleware from "../middleware/authValidation.js";
 
 
 class SaleRouter {
@@ -17,7 +18,7 @@ class SaleRouter {
     }
 
     setupRoutes() {
-        this.router.post("/create", async (req, res) => {
+        this.router.post("/create",authMiddleware('employee'), async (req, res) => {
 
             try {
                 
@@ -36,7 +37,7 @@ class SaleRouter {
             }
         });
 
-        this.router.get("/list", async (req, res) => {
+        this.router.get("/list",authMiddleware('employee'), async (req, res) => {
             try {
                 const response = await saleService.listSales();
                 return res.status(200).json({
@@ -49,7 +50,7 @@ class SaleRouter {
             }
         });
 
-        this.router.put("/update/:id", async (req, res) => {
+        this.router.put("/update/:id",authMiddleware('admin'), async (req, res) => {
             try {
                 const id = req.params.id;
                 const body = req.body;
@@ -64,7 +65,7 @@ class SaleRouter {
             }
         });
 
-        this.router.delete("/delete/:id", async (req, res) => {
+        this.router.delete("/delete/:id",authMiddleware('admin'), async (req, res) => {
             try {
                 const id = req.params.id;
                 const response = await saleService.deleteSale(id);
@@ -79,7 +80,7 @@ class SaleRouter {
         });
 
         
-        this.router.get("/total/:date", async (req, res) => {
+        this.router.get("/total/:date",authMiddleware('admin'), async (req, res) => {
             try {
                 const date = req.params.date;
                 const response = await saleService.totalSales(date);
@@ -94,7 +95,7 @@ class SaleRouter {
         });
 
         
-        this.router.get("/total-month/:year/:month", async (req, res) => {
+        this.router.get("/total-month/:year/:month",authMiddleware('admin'), async (req, res) => {
             try {
                 const { year, month } = req.params;
                 const response = await saleService.totalSalesMonth(year, month);
