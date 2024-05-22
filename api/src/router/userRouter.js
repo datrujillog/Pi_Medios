@@ -1,7 +1,10 @@
 import express from "express";
-import userService from '../service/userService.js'; 
-import { errorResponse} from "../middleware/errorResponse.js";
-// import { BadRequest } from "../middleware/errors.js";
+
+import userService from '../service/userService.js';
+import { errorResponse } from "../middleware/errorResponse.js";
+
+import authMiddleware from "../middleware/authValidation.js";
+
 
 class UserRouter {
     static #instance;
@@ -15,15 +18,14 @@ class UserRouter {
 
         return UserRouter.#instance;
     }
-
     setupRoutes() {
-        this.router.post("/create", async (req, res) => {
+        this.router.post("/create", authMiddleware('admin'), async (req, res) => {
 
             try {
-                
+
                 const body = req.body;
                 const response = await userService.createUser(body);
-                
+
                 return res.status(201).json({
                     success: true,
                     message: "User created successfully",
@@ -64,11 +66,11 @@ class UserRouter {
                 errorResponse(res, error.message);
             }
         });
-        
+
 
 
     }
-    
+
     getRouter() {
         return this.router;
     }
