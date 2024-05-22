@@ -2,11 +2,11 @@
 
 # 1. Administrar Ventas
 
-    * Crear venta
-    * Actualizar venta
-    * Eliminar venta
-    * Listar ventas
-        * Filtrar ventas por fecha  y usuario que la realizó
+    * Crear venta = `Listo`
+    * Actualizar venta = `Listo`
+    * Eliminar venta   = `Listo`
+    * Listar ventas = `Listo`
+        * Filtrar ventas por fecha  y usuario que la realizó = `Falta`
  
  # 2. Administrar Productos
 
