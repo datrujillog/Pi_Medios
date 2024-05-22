@@ -49,7 +49,20 @@ class SaleRouter {
             }
         });
 
-       
+        this.router.put("/update/:id", async (req, res) => {
+            try {
+                const id = req.params.id;
+                const body = req.body;
+                const response = await saleService.updateSale(id, body);
+                return res.status(200).json({
+                    success: true,
+                    message: "Sale updated successfully",
+                    data: response
+                });
+            } catch (error) {
+                errorResponse(res, error.message);
+            }
+        });
     }
     
     getRouter() {
