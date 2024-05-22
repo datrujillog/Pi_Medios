@@ -36,7 +36,20 @@ class SaleRouter {
             }
         });
 
-        
+        this.router.get("/list", async (req, res) => {
+            try {
+                const response = await saleService.listSales();
+                return res.status(200).json({
+                    success: true,
+                    message: "Sales listed successfully",
+                    data: response
+                });
+            } catch (error) {
+                errorResponse(res, error.message);
+            }
+        });
+
+       
     }
     
     getRouter() {
