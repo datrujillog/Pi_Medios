@@ -22,17 +22,17 @@ class SaleRepository {
             const sale = await this.#saleModel.create({
                 data: {
                     qty: body.qty,
-                    usersId: body.usersId, 
-                    productsId: body.productId 
+                    usersId: body.usersId,
+                    productsId: body.productId
                 },
             });
-    
+
             return sale;
         } catch (error) {
             throw new BadRequest(error.message);
         }
     }
-    
+
 
     async listSales() {
 
@@ -54,9 +54,11 @@ class SaleRepository {
                     },
                 },
             });
+
             return sales;
-            
+
         } catch (error) {
+            console.log(error);
             throw new BadRequest(error);
         }
     }
@@ -71,8 +73,8 @@ class SaleRepository {
                 },
                 data: {
                     qty: body.qty,
-                    usersId: body.usersId,  
-                    productsId: body.productId 
+                    usersId: body.usersId,
+                    productsId: body.productId
                 },
             });
 
@@ -98,15 +100,15 @@ class SaleRepository {
         }
     }
 
-    async totalSales(startDate, enDate) {
+    async totalSales(start, end) {
 
         try {
 
             const sales = await this.#saleModel.findMany({
                 where: {
                     saleAt: {
-                        gte: startDate.toISOString(),
-                        lt: enDate.toISOString(),
+                        gte: start,
+                        lt: end,
                     },
                 },
                 include: {
@@ -125,17 +127,19 @@ class SaleRepository {
                 },
             });
 
+            // sales.forEach(sale => {
+            //     const date = new Date(sale.saleAt);
+            //     const year = date.getFullYear();
+            //     const month = ("0" + (date.getMonth() + 1)).slice(-2); 
+            //     const day = ("0" + date.getDate()).slice(-2);
+            //     sale.saleAt = `${year}-${month}-${day}`;
+            // });
+
             // const total = sales.reduce((acc, sale) => {
-            //     return acc + sale.product.price;
+            //     return acc + (sale.product.price * sale.qty);
             // }, 0);
 
-            const total = sales.reduce((acc, sale) => {
-                return acc + (sale.product.price * sale.qty);
-            }, 0);
-
-            return total;
-
-            
+            return sales;
         } catch (error) {
             throw new BadRequest(error);
         }
