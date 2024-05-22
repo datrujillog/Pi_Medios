@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -13,7 +13,7 @@ import withReactContent from 'sweetalert2-react-content'
 
 
 export const ProductManager = () => {
-    const [users, setUsers] = useState([]);
+    const [products, setProduct] = useState([]);
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [newUser, setNewUser] = useState(null);
 
@@ -28,7 +28,7 @@ export const ProductManager = () => {
                     'Auth': '7e3224dd-6530-485a-a4a4-9d342bc30c76',
                 }
             });
-            setUsers(response.data.data);
+            setProduct(response.data.data);
         } catch (error) {
             const MySwal = withReactContent(Swal)
             MySwal.fire({
@@ -113,7 +113,7 @@ export const ProductManager = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {users.map((product, index) => (
+                                {products.map((product, index) => (
                                     <tr
                                         key={index}>
                                         <td>{index + 1}</td>
