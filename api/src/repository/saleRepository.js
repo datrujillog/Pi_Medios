@@ -74,6 +74,22 @@ class SaleRepository {
             throw new BadRequest(error);
         }
     }
+
+    async deleteSale(id) {
+
+        try {
+
+            const sale = await this.#saleModel.delete({
+                where: {
+                    id: id,
+                },
+            });
+
+            return sale;
+        } catch (error) {
+            throw new BadRequest(error);
+        }
+    }
 }
 
 export default new SaleRepository;
