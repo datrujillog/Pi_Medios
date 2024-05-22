@@ -23,5 +23,10 @@ class SaleService {
         const sales = await saleRepository.listSales();
         return sales;
     }
+
+    async updateSale(id, body) {
+        const sale = await saleRepository.updateSale(id, body);
+        return sale;
+    }
 }
 export default new SaleService();
