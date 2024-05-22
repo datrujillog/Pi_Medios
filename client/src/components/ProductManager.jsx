@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-
+import { UserAmin,UserEmployee } from './api/api';
 
 
 
@@ -17,15 +17,14 @@ export const ProductManager = () => {
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [newUser, setNewUser] = useState(null);
 
-    const userAdmin = 'abcda0dc-74fd-4e3c-8316-a3df6f5071a6';
-    const userEmployee = 'e3224dd-6530-485a-a4a4-9d342bc30c76';
+    
 
 
     const getProduct = async () => {
         try {
             const response = await axios.get('http://localhost:5000/api/v1/products/list', {
                 headers: {
-                    'Auth': '7e3224dd-6530-485a-a4a4-9d342bc30c76',
+                    'Auth': UserEmployee,
                 }
             });
             setProduct(response.data.data);
@@ -72,8 +71,8 @@ export const ProductManager = () => {
                 newUser,
                 {
                     headers: {
-                        // 'Auth': userEmployee, //employee
-                        'Auth': userAdmin
+                        'Auth': UserEmployee, //employee
+                        // 'Auth': userAdmin
                     }
                 }
             ).then((response) => {
@@ -138,7 +137,7 @@ export const ProductManager = () => {
 
             <Modal show={showCreateModal} onHide={() => setShowCreateModal(false)}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Create User</Modal.Title>
+                    <Modal.Title>Create productos</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
