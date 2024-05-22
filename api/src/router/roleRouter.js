@@ -36,7 +36,7 @@ class RoleRouter {
         });
 
 
-        this.router.put("/assignUser", async (req, res) => {
+        this.router.put("/assignUser",authMiddleware('admin'), async (req, res) => {
             try {
                 const body = req.body;
                 const response = await roleService.assignRole(body);
