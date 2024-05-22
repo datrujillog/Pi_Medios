@@ -129,3 +129,5 @@ api/prisma/dev.db-journal
 api/prisma/migrations/migration_lock.toml
 api/prisma/dev.db
 api/prisma/dev.db
+api/prisma/dev.db
+dev.db
