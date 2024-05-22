@@ -275,6 +275,15 @@ const swaggerAPi = {
             },
             "required": true,
             "description": "month"
+          },
+          {
+            "name": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
           }
         ],
         "responses": {
@@ -298,6 +307,18 @@ const swaggerAPi = {
         "summary": "create products",
         "tags": ["Products"],
         "description": "create products",
+        "parameters": [
+          {
+            "name": "Auth",
+            "key": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -326,6 +347,18 @@ const swaggerAPi = {
         "summary": "List products",
         "tags": ["Products"],
         "description": "List products",
+        "parameters": [
+          {
+            "name": "Auth",
+            "key": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
+          }
+        ],
 
         "responses": {
           "200": {
