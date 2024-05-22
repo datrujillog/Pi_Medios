@@ -6,8 +6,8 @@ import Col from 'react-bootstrap/Col'
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 import { Button, Form } from 'react-bootstrap';
-import { sendContact } from '../api/api';
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 
 
@@ -56,12 +56,30 @@ export const ProductManager = () => {
 
     const handleCreateUser = async () => {
         if (newUser) {
-            // await axios.post(`http://localhost:5000/api/users`, newUser);
-            sendContact(newUser);
-            setNewUser(null);
-            getProduct();
+
+            await axios.post('http://localhost:5000/api/v1/products/create',
+                newUser,
+                {
+                    headers: {
+                        'Auth': '7e3224dd-6530-485a-a4a4-9d342bc30c76', //employee
+                        // 'Auth': 'abcda0dc-74fd-4e3c-8316-a3df6f5071a6', //admin
+                    }
+                }
+            ).then((response) => {
+                console.log('response', response);
+                getProduct();
+                setNewUser(null);
+            }).catch((error) => {
+                const MySwal = withReactContent(Swal)
+                MySwal.fire({
+                    title: 'Error',
+                    text: error.response.data.message,
+                    icon: 'error',
+                    confirmButtonText: 'Ok'
+                })
+            });
+            setShowCreateModal(false);
         }
-        setShowCreateModal(false);
     };
 
 
