@@ -123,16 +123,26 @@ const swaggerAPi = {
         "summary": "update sales",
         "tags": ["Sales"],
         "description": "update sales",
+        
         "parameters": [
           {
-            "in": "path",
             "name": "id",
+            "in": "path",
             "schema": {
               "type": "string",
               "example": "e7990dd3-8aac-476a-810a-3a00753f010b"
             },
             "required": true,
             "description": "id de la venta"
+          },
+          {
+            "name": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
           }
         ],
         "requestBody": {
@@ -173,6 +183,15 @@ const swaggerAPi = {
             },
             "required": true,
             "description": "sale id"
+          },
+          {
+            "name": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
           }
         ],
         "responses": {
@@ -205,6 +224,15 @@ const swaggerAPi = {
             },
             "required": true,
             "description": "date"
+          },
+          {
+            "name": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
           }
         ],
         "responses": {
