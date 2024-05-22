@@ -107,8 +107,8 @@ class SaleRepository {
             const sales = await this.#saleModel.findMany({
                 where: {
                     saleAt: {
-                        gte: start,
-                        lt: end,
+                        gte: start.toISOString(),
+                        lt: end.toISOString(),
                     },
                 },
                 include: {
@@ -127,17 +127,6 @@ class SaleRepository {
                 },
             });
 
-            // sales.forEach(sale => {
-            //     const date = new Date(sale.saleAt);
-            //     const year = date.getFullYear();
-            //     const month = ("0" + (date.getMonth() + 1)).slice(-2); 
-            //     const day = ("0" + date.getDate()).slice(-2);
-            //     sale.saleAt = `${year}-${month}-${day}`;
-            // });
-
-            // const total = sales.reduce((acc, sale) => {
-            //     return acc + (sale.product.price * sale.qty);
-            // }, 0);
 
             return sales;
         } catch (error) {
@@ -156,9 +145,9 @@ class SaleRepository {
                         lt: enDate.toISOString(),
                     },
                 },
-                // include: {
-                //     product:true,
-                // },
+                include: {
+                    product:true,
+                },
             });
 
             const total = sales.reduce((acc, sale) => {
