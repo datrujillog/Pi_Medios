@@ -64,7 +64,7 @@ export const UserManager = () => {
 
   const handleAssigRoleInputChange = (event) => {
     if (newRole) {
-      setNewUser({
+      setNewRole({
         ...newRole,
         [event.target.name]: event.target.value,
       });
@@ -73,11 +73,9 @@ export const UserManager = () => {
 
 
   const handleAssigRole = async () => {
-    if (newUser) {
-      console.log('newRole', newRole);
-
+    if (newRole) {
       await axios.put('http://localhost:5000/api/v1/roles/assignUser',
-        newUser,
+        newRole,
         {
           headers: {
             // 'Auth': userEmployee, //employee
@@ -243,23 +241,23 @@ export const UserManager = () => {
 
       <Modal show={showAssigRoleModal} onHide={() => setShowAssigRoleModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Create User</Modal.Title>
+          <Modal.Title>Asignar Role</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
-            <Form.Group controlId="formUsername">
-              <Form.Label>userId</Form.Label>
+            <Form.Group controlId="formUserId">
+              <Form.Label>user</Form.Label>
               <Form.Control type="text" placeholder="Enter userId" name="userId" onChange={handleAssigRoleInputChange} />
             </Form.Group>
 
-            <Form.Group controlId="formUserlastNanme">
+            <Form.Group controlId="formRoleId">
               <Form.Label>roleId</Form.Label>
               <Form.Control type="text" placeholder="Enter roleId" name="roleId" onChange={handleAssigRoleInputChange} />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowCreateModal(false)}>
+          <Button variant="secondary" onClick={() => setShowAssigRoleModal(false)}>
             Close
           </Button>
           <Button variant="primary" onClick={handleAssigRole}>
