@@ -17,7 +17,7 @@ class RoleRouter {
     }
 
     setupRoutes() {
-        this.router.post("/create", async (req, res) => {
+        this.router.post("/create",authMiddleware('admin'), async (req, res) => {
 
             try {
 
