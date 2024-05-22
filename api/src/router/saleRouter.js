@@ -92,6 +92,22 @@ class SaleRouter {
                 errorResponse(res, error.message);
             }
         });
+
+        
+        this.router.get("/total-month/:year/:month", async (req, res) => {
+            try {
+                const { year, month } = req.params;
+                const response = await saleService.totalSalesMonth(year, month);
+                return res.status(200).json({
+                    success: true,
+                    message: "Total sales obtained successfully",
+                    data: response
+                });
+            } catch (error) {
+                errorResponse(res, error.message);
+            }
+        });
+
     }
     
     getRouter() {
