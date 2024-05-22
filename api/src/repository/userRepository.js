@@ -39,7 +39,7 @@ class UserRepository {
     }
 
     async listUsers() {
-        
+
         try {
 
             const users = await this.#userModel.findMany({
@@ -48,9 +48,9 @@ class UserRepository {
                 }
             });
             return users;
-            
+
         } catch (error) {
-            throw new BadRequest(error);            
+            throw new BadRequest(error);
         }
     }
 
@@ -69,6 +69,25 @@ class UserRepository {
         }
     }
 
+    async findUserById(id) {
+        try {
+            const user = await this.#userModel.findUnique({
+                where: {
+                    id: id
+                },
+                select: {
+                    roles: {
+                        select: {
+                            name: true
+                        }
+                    }
+                }
+            });
+            return user;
+        } catch (error) {
+            throw new BadRequest(error);
+        }
+    }
 
 
 }
