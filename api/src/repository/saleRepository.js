@@ -18,18 +18,21 @@ class SaleRepository {
     }
 
     async createSale(body) {
-
         try {
-
-            const user = await this.#saleModel.create({
-                data: body,
+            const sale = await this.#saleModel.create({
+                data: {
+                    qty: body.qty,
+                    usersId: body.usersId, 
+                    productsId: body.productId 
+                },
             });
-
-            return user;
+    
+            return sale;
         } catch (error) {
-            throw new BadRequest(error);
+            throw new BadRequest(error.message);
         }
     }
+    
 
     async listSales() {
 
@@ -66,7 +69,11 @@ class SaleRepository {
                 where: {
                     id: id,
                 },
-                data: body,
+                data: {
+                    qty: body.qty,
+                    usersId: body.usersId,  
+                    productsId: body.productId 
+                },
             });
 
             return sale;
