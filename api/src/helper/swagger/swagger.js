@@ -381,6 +381,18 @@ const swaggerAPi = {
         "summary": "create roles",
         "tags": ["Roles"],
         "description": "create Roles",
+        "parameters": [
+          {
+            "name": "Auth",
+            "key": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -409,6 +421,18 @@ const swaggerAPi = {
         "summary": "update roles",
         "tags": ["Roles"],
         "description": "update roles",
+        "parameters": [
+          {
+            "name": "Auth",
+            "key": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -440,6 +464,18 @@ const swaggerAPi = {
         "summary": "create users",
         "tags": ["Users"],
         "description": "create users",
+        "parameters": [
+          {
+            "name": "Auth",
+            "key": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -468,7 +504,18 @@ const swaggerAPi = {
         "summary": "List users",
         "tags": ["Users"],
         "description": "List users",
-
+        "parameters": [
+          {
+            "name": "Auth",
+            "key": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
+          }
+        ],
         "responses": {
           "200": {
             "description": "Users get successfully"
@@ -498,6 +545,15 @@ const swaggerAPi = {
             },
             "required": true,
             "description": "user id"
+          },
+          {
+            "name": "Auth",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "userId for authentication"
           }
         ],
         "responses": {
