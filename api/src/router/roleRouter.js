@@ -1,5 +1,6 @@
 import express from "express";
 import roleService from '../service/rolesService.js'; 
+import { errorResponse } from "../middleware/errorResponse.js";
 
 
 class RoleRouter {
@@ -30,6 +31,7 @@ class RoleRouter {
 
             } catch (error) {
                 console.log(error);
+                errorResponse(res, error.message);
             }
         });
     }
