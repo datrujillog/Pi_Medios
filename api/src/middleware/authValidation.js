@@ -20,7 +20,7 @@ async function adminValidation(req,res,next){
     if(req.user.roles.name ==="admin"){
         return next()
     }else{
-        return res.status(400).json({
+        return res.status(403).json({
             error:true,
             message:"Insufficient permissions"
         })
@@ -32,7 +32,7 @@ function employeeValidation(req,res,next){
     if(req.user.roles.name==="employee"  || req.user.roles.name==="admin"){
         return next()
     }else{
-        return res.status(400).json({
+        return res.status(403).json({
             error:true,
             message:"Insufficient permissions"
         })

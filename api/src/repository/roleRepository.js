@@ -36,7 +36,7 @@ class RoleRepository {
     async assignRole(body) {
 
         try {
-
+            delete body.id;
             const role = await this.#roleModel.update({
                 where: {
                     id: body.roleId

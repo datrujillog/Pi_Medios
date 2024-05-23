@@ -21,7 +21,7 @@ class SaleRepository {
         try {
             const sale = await this.#saleModel.create({
                 data: {
-                    qty: body.qty,
+                    qty: parseInt(body.qty),
                     usersId: body.usersId,
                     productsId: body.productId
                 },

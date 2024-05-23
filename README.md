@@ -29,3 +29,12 @@
 # 5. Balance Mensual
 
     * Entregar el valor total de ventas en un mes específico = `Listo`
+
+
+
+## Implementar UI básica
+
+ * Administrador productos: Crear producto, Listar productos = `Listo`
+ * Administrar usuarios:  Crear usuarios, Listar usuarios, Asignar un rol a un usuario
+ * Administrar Ventas: Crear venta, Listar ventas
+
