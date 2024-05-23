@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { UserAmin,UserEmployee } from './api/api';
+import UserAmin from './api/api';
 
 
 
@@ -29,7 +29,6 @@ export const UserManager = () => {
       const response = await axios.get('http://localhost:5000/api/v1/users/list', {
         headers: {
           'Auth': UserAmin,
-          // 'Auth': UserEmployee,
         }
       });
       console.log('response', response.data.data);
@@ -77,7 +76,6 @@ export const UserManager = () => {
         newRole,
         {
           headers: {
-            // 'Auth': UserEmployee, //employee
             'Auth': UserAmin
           }
         }
@@ -128,7 +126,6 @@ export const UserManager = () => {
         newUser,
         {
           headers: {
-            // 'Auth': UserEmployee, //employee
             'Auth': UserAmin
           }
         }
@@ -150,16 +147,15 @@ export const UserManager = () => {
     }
   };
 
-  console.log('users', users);
 
   return (
     <>
 
       <Container className='mt-4'>
-        <div>User Manager</div>
         <Row>
           <Col lg={8} xs={12} className='mx-auto'>
-            <Table striped bordered hover variant="" >
+            <h1>User Manager</h1>
+            <Table className='mt-4' striped bordered hover variant="" >
 
               <thead>
                 <tr>
