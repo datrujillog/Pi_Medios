@@ -4,8 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "npx prisma migrate dev --name initial && node ./src/server/server.js",
-    "start": " prisma migrate dev --create-only && npx prisma migrate deploy && npx prisma generate && node ./src/server/server.js",
+    "start": "node ./src/server/server.js",
+    "dev": "nodemon ./src/server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
