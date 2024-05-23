@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { UserAmin,UserEmployee } from './api/api';
+import UserAmin from './api/api';
 
 
 
@@ -17,14 +17,14 @@ export const ProductManager = () => {
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [newUser, setNewUser] = useState(null);
 
-    
+
 
 
     const getProduct = async () => {
         try {
             const response = await axios.get('http://localhost:5000/api/v1/products/list', {
                 headers: {
-                    'Auth': UserEmployee,
+                    'Auth': UserAmin,
                 }
             });
             setProduct(response.data.data);
@@ -71,8 +71,7 @@ export const ProductManager = () => {
                 newUser,
                 {
                     headers: {
-                        'Auth': UserEmployee, //employee
-                        // 'Auth': userAdmin
+                        'Auth': UserAmin
                     }
                 }
             ).then((response) => {
@@ -98,10 +97,10 @@ export const ProductManager = () => {
         <>
 
             <Container className='mt-4'>
-                <div>ProductManager</div>
                 <Row>
                     <Col lg={8} xs={12} className='mx-auto'>
-                        <Table striped bordered hover variant="" >
+                <h1>Product Manager</h1>
+                        <Table className='mt-4' striped bordered hover variant="" >
 
                             <thead>
                                 <tr>
