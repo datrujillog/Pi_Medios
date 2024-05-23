@@ -18,3 +18,5 @@ loadProducts().catch(e => {
     await prisma.$disconnect();
 });
 
+
+export default loadProducts;
