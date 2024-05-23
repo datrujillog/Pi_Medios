@@ -39,12 +39,13 @@
  * Administrar Ventas: Crear venta, Listar ventas
 
 
+## Uso local
 
 1. Clonar el repositorio:
 
    ```bash
-   git clone https://github.com/tu-usuario/nombre-repositorio.git
-   cd nombre-repositorio
+   git clone https://github.com/datrujillog/Pi_Medios.git
+   cd Pi_Medios
    ```
 2. Instalar las dependencias del proyecto:
 
@@ -85,9 +86,11 @@
     ``
     
 
-    
-    
-    `
+    - Para Ejecutar el proyecto En docker hay que agregar estos comandos en el packajson para que se cren las migraciones 
+    ```bash 
+         "dev": "npx prisma migrate dev --name initial && node ./src/server/server.js",
+         "start": " prisma migrate dev --create-only && npx prisma migrate deploy && npx prisma generate && node ./src/server/server.js",
+    ```
     
    
 
