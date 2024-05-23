@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "131b721f-83b7-46d8-a0f5-6aa1a7c77a82",
+		"name": "User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16430771",
+		"_collection_link": "https://speeding-capsule-125814.postman.co/workspace/PI_MEDIOS~bb68d2ea-b551-4d8c-8883-8b3c19bd5594/collection/16430771-131b721f-83b7-46d8-a0f5-6aa1a7c77a82?action=share&source=collection_link&creator=16430771"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6",
+						"disabled": true
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"document\": \"document.png\",\r\n    \"lastName\": \"Martines\",\r\n    \"name\": \"Willy\",\r\n    // \"rolesId\": \"a2a5d1c4-8035-4a85-ab81-f71ae89fec77\"\r\n    \"rolesId\": \"b25180e1-7393-4f76-9e61-bfe3d98daa0d\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "1e03713c-852f-46f2-b279-f430eca224d3"
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"employee\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6"
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"employee\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/users/delete/f484fef7-eada-4704-94ba-eb001bfd3516",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"delete",
+						"f484fef7-eada-4704-94ba-eb001bfd3516"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "cd4b1860-a010-4438-a0a2-2b4e65d9a65f",
+		"name": "Product",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16430771",
+		"_collection_link": "https://speeding-capsule-125814.postman.co/workspace/PI_MEDIOS~bb68d2ea-b551-4d8c-8883-8b3c19bd5594/collection/16430771-cd4b1860-a010-4438-a0a2-2b4e65d9a65f?action=share&source=collection_link&creator=16430771"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6"
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Azucar\",\r\n    \"description\": \"Las azucar\",\r\n    \"price\": 5000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/products/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6",
+						"disabled": true
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Panela\",\r\n    \"description\": \"Panela balluna\",\r\n    \"price\": 5000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/products/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"products",
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
