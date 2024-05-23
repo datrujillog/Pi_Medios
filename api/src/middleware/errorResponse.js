@@ -1,7 +1,4 @@
 import { response } from "express";
-import jwt from "jsonwebtoken";
-import config from "../config/config.js";
-import env from "../config/env.js";
 
 const errorResponse = (res = response, error) => {
     if (error.hasOwnProperty("code") || error.hasOwnProperty("errors")) {
