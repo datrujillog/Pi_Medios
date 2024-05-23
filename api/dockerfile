@@ -11,15 +11,15 @@ COPY ./src ./src/
 
 EXPOSE 5000
 
+RUN npx prisma generate
+
 RUN npx prisma init
 
-RUN node ./database/data/loadData.js
+# RUN node /usr/src/app/src/database/loadData.js
 
 COPY prisma ./prisma/
 
 COPY .env .
-# RUN npx prisma migrate dev --name init
-RUN npx prisma generate
 
 CMD ["npm", "run","dev"]   
 
