@@ -38,3 +38,57 @@
  * Administrar usuarios:  Crear usuarios, Listar usuarios, Asignar un rol a un usuario
  * Administrar Ventas: Crear venta, Listar ventas
 
+
+
+1. Clonar el repositorio:
+
+   ```bash
+   git clone https://github.com/tu-usuario/nombre-repositorio.git
+   cd nombre-repositorio
+   ```
+2. Instalar las dependencias del proyecto:
+
+   ```bash
+   npm install
+   ```
+
+   3. Ejecutar migraciones prisma para crear la base de datos
+    ```bash
+    npx prisma migrate dev
+    ```
+    4. Ejecutar wl comando para prisma de migraciones para inicializar la base de datos
+    ```bash
+    npx prisma migrate dev
+    ```
+    5. Ejecutar el comando para iniciar el servidor
+    ```bash
+    npm run dev
+    ```
+    6. Abrir el navegador y acceder a la url `http://localhost:5000
+
+
+    ## Ejecutar frontend en React
+
+    1. Ingresar a la carpeta cliet
+    ```bash
+    cd client
+    ```
+    2. Instalar las dependencias del proyecto:
+    ```bash
+    npm install
+    ```
+    3. Ejecutar el comando para iniciar el servidor
+    ```bash
+    npm start
+    ```
+    4. Abrir el navegador y acceder a la url `http://localhost:3000
+    ``
+    
+
+    
+    
+    `
+    
+   
+
+   
