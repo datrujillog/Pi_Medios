@@ -8,7 +8,7 @@ import Modal from 'react-bootstrap/Modal';
 import { Button, Form } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
-import { UserAmin, UserEmployee } from './api/api';
+import UserAmin  from './api/api';
 
 
 
@@ -24,7 +24,7 @@ export const SalesManager = () => {
         try {
             const response = await axios.get('http://localhost:5000/api/v1/sales/list', {
                 headers: {
-                    'Auth': UserEmployee,
+                    'Auth': UserAmin,
                 }
             });
             setSales(response.data.data);
@@ -71,8 +71,7 @@ export const SalesManager = () => {
                 newSales,
                 {
                     headers: {
-                        'Auth': UserEmployee, //employee
-                        // 'Auth': userAdmin
+                        'Auth': UserAmin,
                     }
                 }
             ).then((response) => {
