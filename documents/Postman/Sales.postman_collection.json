@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "399d90d3-4770-46f0-956c-f8583e8b465b",
+		"name": "Sales",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16430771",
+		"_collection_link": "https://speeding-capsule-125814.postman.co/workspace/PI_MEDIOS~bb68d2ea-b551-4d8c-8883-8b3c19bd5594/collection/16430771-399d90d3-4770-46f0-956c-f8583e8b465b?action=share&source=collection_link&creator=16430771"
+	},
+	"item": [
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6",
+						"description": "admin"
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76",
+						"description": "empleado",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/sales/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "totalFechas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6"
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/sales/total/2024-05-22",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"total",
+						"2024-05-22"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "total-month",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6"
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/sales/total-month/2024/05",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"total-month",
+						"2024",
+						"05"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6"
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": \"479fba0a-baaf-4b46-95a2-83a663817646\",\r\n  \"qty\": 1,\r\n  \"usersId\": \"abcda0dc-74fd-4e3c-8316-a3df6f5071a6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/sales/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6",
+						"disabled": true
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": \"479fba0a-baaf-4b46-95a2-83a663817646\",\r\n  \"qty\": 1,\r\n  \"usersId\": \"abcda0dc-74fd-4e3c-8316-a3df6f5071a6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/sales/update/529a3f31-188f-4778-afd4-647b2947f557",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"update",
+						"529a3f31-188f-4778-afd4-647b2947f557"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6"
+					},
+					{
+						"key": "Auth",
+						"value": "7e3224dd-6530-485a-a4a4-9d342bc30c76",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"productsId\":\"479fba0a-baaf-4b46-95a2-83a663817646\",\r\n    \"qty\": 5,\r\n    \"usersId\": \"abcda0dc-74fd-4e3c-8316-a3df6f5071a6\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/sales/delete/529a3f31-188f-4778-afd4-647b2947f557",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"sales",
+						"delete",
+						"529a3f31-188f-4778-afd4-647b2947f557"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

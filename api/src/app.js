@@ -2,6 +2,10 @@ import express from "express";
 import morgan from "morgan";
 import cookie from "cookie-parser";
 import cors from 'cors';
+import swaggerUi from 'swagger-ui-express';
+import swaggerDocument from "./helper/swagger/swagger.js";
+
+import router from './router/index.js';
 
 
 const app = express();
@@ -14,9 +18,11 @@ app.use(cors());
 
 
 // use router
+app.use(router);
 
 
-// Middleware de manejo de errores
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
 app.use((error, req, res, next) => {
     console.error(error.message);
     res.status(500).json({ message: error.message || error });

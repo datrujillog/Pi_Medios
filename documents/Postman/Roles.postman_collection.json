@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "99983d3c-7e40-4a71-9b8a-beb9bbab42e9",
+		"name": "Roles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16430771",
+		"_collection_link": "https://speeding-capsule-125814.postman.co/workspace/PI_MEDIOS~bb68d2ea-b551-4d8c-8883-8b3c19bd5594/collection/16430771-99983d3c-7e40-4a71-9b8a-beb9bbab42e9?action=share&source=collection_link&creator=16430771"
+	},
+	"item": [
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"employee\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/roles/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"roles",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assignUser",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Auth",
+						"value": "abcda0dc-74fd-4e3c-8316-a3df6f5071a6"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"36ed8e0c-6911-4d66-9fbd-cb383e50350e\",\r\n\r\n    \"roleId\": \"a2a5d1c4-8035-4a85-ab81-f71ae89fec77\"\r\n    \r\n    \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/roles/assignUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"roles",
+						"assignUser"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

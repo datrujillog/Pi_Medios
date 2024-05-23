@@ -1,0 +1,26 @@
+FROM node:latest
+
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+
+RUN npm install
+
+COPY ./src ./src/ 
+
+EXPOSE 5000
+
+RUN npx prisma generate
+
+RUN npx prisma init
+
+# RUN node /usr/src/app/src/database/loadData.js
+
+COPY prisma ./prisma/
+
+COPY .env .
+
+CMD ["npm", "run","dev"]   
+
+

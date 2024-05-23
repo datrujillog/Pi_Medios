@@ -4,8 +4,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node ./src/server/server.js",
-    "dev": "nodemon ./src/server/server.js",
+    "dev": "npx prisma migrate dev --name initial && node ./src/server/server.js",
+    "start": " prisma migrate dev --create-only && npx prisma migrate deploy && npx prisma generate && node ./src/server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +13,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@prisma/client": "^5.14.0",
+    "@sequelize/sqlite3": "^7.0.0-alpha.41",
     "bcrypt": "^5.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
@@ -20,7 +22,9 @@
     "envalid": "^8.0.0",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
-    "sequelize": "^6.37.3"
+    "prisma": "^5.14.0",
+    "sequelize": "^6.37.3",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "morgan": "^1.10.0",
